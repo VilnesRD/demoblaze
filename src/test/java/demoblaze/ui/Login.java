@@ -8,7 +8,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Login {
+public class Login extends TestBase {
 @Test
     void successfulLogin () {
     open("https://www.demoblaze.com/");
@@ -17,7 +17,6 @@ public class Login {
     $("#loginpassword").setValue("xswqaz123");
     $("button[onclick='logIn()']").click();
     $("#nameofuser").shouldHave(text("Welcome test_qa_16"));
-    Configuration.holdBrowserOpen = true;
 
 }
 
@@ -31,8 +30,6 @@ public class Login {
         switchTo().alert().accept();
         $("#logInModal").shouldBe(visible);
         $("#nameofuser").shouldNotBe(visible);
-
-        Configuration.holdBrowserOpen = true;
 
 
     }

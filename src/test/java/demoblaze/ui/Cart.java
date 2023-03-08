@@ -15,8 +15,10 @@ import java.util.stream.Stream;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.testng.AssertJUnit.assertTrue;
 
-public class Cart {
+public class Cart extends TestBase{
     Faker faker = new Faker(new Locale("en"));
     String name =faker.name().firstName(),
             country = faker.country().name(),
@@ -41,16 +43,24 @@ public class Cart {
         $("#year").setValue("1999");
         $("button[onclick='purchaseOrder()']").click();
         $(".sweet-alert").shouldBe(visible);
-        $$("p.lead br").get(2).shouldHave(text("360"));
-        $$("p.lead br").get(3).shouldHave(text(card));
-        $$("p.lead br").get(4).shouldHave(text(name));
+        String orderConfirmText = $("p.lead").getText();
+        String expectedText = "360";
+        assertTrue(orderConfirmText.contains(expectedText));
+        assertTrue(orderConfirmText.contains(name));
+        assertTrue(orderConfirmText.contains(card));
 
+    }
 
+    @Test
+    void deleteItemFromCart () {
+        open("https://www.demoblaze.com/");
+        $$("#itemc").first().click();
+        $("a[href='prod.html?idp_=1']").click();
+        $(".btn-success").click();
+        switchTo().alert().accept();
+        $$("#navbarExample li").get(3).click();
+        $$("a[href='#']").get(7).shouldBe(visible).click();
+        $("tr.success").shouldNotBe(visible);
 
-
-
-       /* $$("#tbodyid").first().shouldHave(Condition.text("Samsung galaxy s6"));
-        $("#totalp").shouldHave(text("360"));*/
-        Configuration.holdBrowserOpen = true;
     }
 }

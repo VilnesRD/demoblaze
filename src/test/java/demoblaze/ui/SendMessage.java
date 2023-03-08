@@ -9,7 +9,7 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class SendMessage {
+public class SendMessage extends TestBase {
     Faker faker = new Faker(new Locale("en"));
     String email =faker.internet().emailAddress(),
     name = faker.name().firstName(),
@@ -25,8 +25,6 @@ public class SendMessage {
         String alertText = switchTo().alert().getText();
         String expectedText = "Thanks for the message!!";
         assertTrue(alertText.contains(expectedText));
-        Configuration.holdBrowserOpen = true;
-
 
     }
 }

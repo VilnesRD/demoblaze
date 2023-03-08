@@ -9,7 +9,7 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Registration {
+public class Registration extends TestBase{
     Faker faker = new Faker(new Locale("en"));
     String login =faker.name().firstName(),
             password = faker.funnyName().name();
@@ -20,6 +20,5 @@ public class Registration {
         $("#sign-username").setValue(login);
         $("#sign-password").setValue(password);
         $("button[onclick='register()']").click();
-        Configuration.holdBrowserOpen = true;
     }
 }

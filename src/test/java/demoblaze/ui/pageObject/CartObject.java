@@ -1,0 +1,99 @@
+package demoblaze.ui.pageObject;
+
+import  com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
+import static org.testng.AssertJUnit.assertTrue;
+
+public class CartObject {
+
+    private SelenideElement
+    selectCategory = $$("#itemc").first(),
+    selectItem = $("a[href='prod.html?idp_=1']"),
+    successButton =$(".btn-success"),
+    goToCard = $$("#navbarExample li").get(3),
+    setName = $("#name"),
+    setCountry =  $("#country"),
+    setCity = $("#city"),
+    setCard = $("#card"),
+    setMonth = $("#month"),
+    setYear =  $("#year"),
+            purchaseOrder =  $("button[onclick='purchaseOrder()']");
+
+public CartObject addItemToCart () {
+    selectCategory.click();
+    selectItem.click();
+    successButton.click();
+    switchTo().alert().accept();
+
+    return this;
+}
+
+public CartObject goToCartAndStartPlaceAnOrder () {
+    goToCard.click();
+    successButton.click();
+
+    return this;
+
+}
+
+public CartObject setName (String value) {
+    setName.setValue(value);
+
+    return this;
+}
+
+public CartObject setCountry (String value) {
+    setCountry.setValue(value);
+
+        return this;
+    }
+
+    public CartObject setCity (String value) {
+    setCity.setValue(value);
+
+        return this;
+    }
+
+    public CartObject setCard (String value) {
+        setCard.setValue(value);
+
+        return this;
+    }
+
+    public CartObject setMonth (String value) {
+        setMonth.setValue(value);
+
+        return this;
+    }
+
+    public CartObject setYear (String value) {
+        setYear.setValue(value);
+
+        return this;
+    }
+
+    public CartObject finishPlaceAnOrder () {
+        purchaseOrder.click();
+
+        return this;
+    }
+
+    public CartObject checkResults (String name, String card) {
+        $(".sweet-alert").shouldBe(visible);
+        String orderConfirmText = $("p.lead").getText();
+        String expectedText = "360";
+        assertTrue(orderConfirmText.contains(expectedText));
+        assertTrue(orderConfirmText.contains(name));
+        assertTrue(orderConfirmText.contains(card));
+
+        return this;
+    }
+
+
+
+
+
+
+}
