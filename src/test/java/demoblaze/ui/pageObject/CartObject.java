@@ -89,7 +89,7 @@ public class CartObject {
     public CartObject checkResultsForAddItem(String name, String card) {
         $(".sweet-alert").shouldBe(visible);
         String orderConfirmText = $("p.lead").getText();
-        String expectedText = "360";
+        String expectedText = "360 USD";
         assertTrue(orderConfirmText.contains(expectedText));
         assertTrue(orderConfirmText.contains(name));
         assertTrue(orderConfirmText.contains(card));

@@ -1,7 +1,9 @@
 package demoblaze.ui.pageObject;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static org.testng.AssertJUnit.assertTrue;
@@ -21,13 +23,13 @@ public class RegistrationObject {
     }
 
     public RegistrationObject setLogin (String login) {
-        setName.setValue(login);
+        setName.shouldBe(visible).setValue(login);
 
         return this;
     }
 
     public RegistrationObject setPassword (String password) {
-        setPassword.setValue(password);
+        setPassword.shouldBe(visible).setValue(password);
 
         return this;
     }

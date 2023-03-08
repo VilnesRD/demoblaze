@@ -1,7 +1,9 @@
 package demoblaze.ui.pageObject;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -21,7 +23,7 @@ public class MessageObject {
     }
 
     public MessageObject setEmail (String email) {
-        setEmail.setValue(email);
+        setEmail.shouldBe(visible).setValue(email);
 
         return this;
     }
