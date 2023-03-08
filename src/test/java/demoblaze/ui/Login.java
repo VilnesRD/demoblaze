@@ -1,5 +1,6 @@
 package demoblaze.ui;
 
+import demoblaze.TestBase;
 import demoblaze.ui.pageObject.LoginObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

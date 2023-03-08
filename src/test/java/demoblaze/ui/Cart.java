@@ -1,6 +1,7 @@
 package demoblaze.ui;
 
 import com.github.javafaker.Faker;
+import demoblaze.TestBase;
 import demoblaze.ui.pageObject.CartObject;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
