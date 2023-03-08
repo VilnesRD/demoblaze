@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -55,7 +56,7 @@ public class Cart extends TestBase {
     @DisplayName("Проверка удаления добавленного товара из корзины")
     void deleteItemFromCart() {
         step("Открываем главную страницу", () -> {
-            open("https://www.demoblaze.com/");});
+            open(baseUrl);});
         step("Добавляем товар в коризну", () -> {
             new CartObject()
                     .addItemToCart()

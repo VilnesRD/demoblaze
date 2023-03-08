@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
@@ -19,7 +20,7 @@ public class Registration extends TestBase {
     @DisplayName("Проверка создания нового пользователя")
     void successfulRegistration () {
         step("Открываем главную страницу", () -> {
-            open("https://www.demoblaze.com/");});
+            open(baseUrl);});
         step("Открываем форму регистрации нового пользователя", () -> {
             new RegistrationObject().goToRegistrationForm();});
         step("Вводим логин и пароль", () -> {
