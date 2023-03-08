@@ -9,9 +9,9 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class Cart extends TestBase{
+public class Cart extends TestBase {
     Faker faker = new Faker(new Locale("en"));
-    String name =faker.name().firstName(),
+    String name = faker.name().firstName(),
             country = faker.country().name(),
             city = faker.country().capital(),
             card = faker.finance().creditCard();
@@ -31,11 +31,11 @@ public class Cart extends TestBase{
                 .setMonth("01")
                 .setYear("1999")
                 .finishPlaceAnOrder()
-                .checkResultsForAddItem(name,card);
+                .checkResultsForAddItem(name, card);
     }
 
     @Test
-    void deleteItemFromCart () {
+    void deleteItemFromCart() {
         open("https://www.demoblaze.com/");
         new CartObject()
                 .addItemToCart()

@@ -1,6 +1,6 @@
 package demoblaze.ui.pageObject;
 
-import  com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
@@ -9,78 +9,78 @@ import static org.testng.AssertJUnit.assertTrue;
 public class CartObject {
 
     private SelenideElement
-    selectCategory = $$("#itemc").first(),
-    selectItem = $("a[href='prod.html?idp_=1']"),
-    successButton =$(".btn-success"),
-    goToCard = $$("#navbarExample li").get(3),
-    setName = $("#name"),
-    setCountry =  $("#country"),
-    setCity = $("#city"),
-    setCard = $("#card"),
-    setMonth = $("#month"),
-    setYear =  $("#year"),
-            purchaseOrder =  $("button[onclick='purchaseOrder()']"),
-    deleteButton = $$("a[href='#']").get(7);
+            selectCategory = $$("#itemc").first(),
+            selectItem = $("a[href='prod.html?idp_=1']"),
+            successButton = $(".btn-success"),
+            goToCard = $$("#navbarExample li").get(3),
+            setName = $("#name"),
+            setCountry = $("#country"),
+            setCity = $("#city"),
+            setCard = $("#card"),
+            setMonth = $("#month"),
+            setYear = $("#year"),
+            purchaseOrder = $("button[onclick='purchaseOrder()']"),
+            deleteButton = $$("a[href='#']").get(7);
 
-public CartObject addItemToCart () {
-    selectCategory.click();
-    selectItem.click();
-    successButton.click();
-    switchTo().alert().accept();
+    public CartObject addItemToCart() {
+        selectCategory.click();
+        selectItem.click();
+        successButton.click();
+        switchTo().alert().accept();
 
-    return this;
-}
+        return this;
+    }
 
-public CartObject goToCart() {
-    goToCard.click();
+    public CartObject goToCart() {
+        goToCard.click();
 
-    return this;
+        return this;
 
-}
+    }
 
-    public CartObject startPlaceAnOrder () {
+    public CartObject startPlaceAnOrder() {
         successButton.click();
 
-    return this;
+        return this;
     }
 
-public CartObject setName (String value) {
-    setName.setValue(value);
-
-    return this;
-}
-
-public CartObject setCountry (String value) {
-    setCountry.setValue(value);
+    public CartObject setName(String value) {
+        setName.setValue(value);
 
         return this;
     }
 
-    public CartObject setCity (String value) {
-    setCity.setValue(value);
+    public CartObject setCountry(String value) {
+        setCountry.setValue(value);
 
         return this;
     }
 
-    public CartObject setCard (String value) {
+    public CartObject setCity(String value) {
+        setCity.setValue(value);
+
+        return this;
+    }
+
+    public CartObject setCard(String value) {
         setCard.setValue(value);
 
         return this;
     }
 
-    public CartObject setMonth (String value) {
+    public CartObject setMonth(String value) {
         setMonth.setValue(value);
 
         return this;
     }
 
-    public CartObject setYear (String value) {
+    public CartObject setYear(String value) {
         setYear.setValue(value);
 
         return this;
     }
 
-    public CartObject finishPlaceAnOrder () {
+    public CartObject finishPlaceAnOrder() {
         purchaseOrder.click();
 
         return this;
@@ -97,13 +97,13 @@ public CartObject setCountry (String value) {
         return this;
     }
 
-    public CartObject deleteItemFrom () {
-    deleteButton.click();
+    public CartObject deleteItemFrom() {
+        deleteButton.click();
 
-    return this;
+        return this;
     }
 
-    public CartObject checkResultDeleteItem () {
+    public CartObject checkResultDeleteItem() {
         $("tr.success").shouldNotBe(visible);
 
         return this;
