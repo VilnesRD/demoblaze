@@ -19,7 +19,8 @@ public class CartObject {
     setCard = $("#card"),
     setMonth = $("#month"),
     setYear =  $("#year"),
-            purchaseOrder =  $("button[onclick='purchaseOrder()']");
+            purchaseOrder =  $("button[onclick='purchaseOrder()']"),
+    deleteButton = $$("a[href='#']").get(7);
 
 public CartObject addItemToCart () {
     selectCategory.click();
@@ -30,13 +31,18 @@ public CartObject addItemToCart () {
     return this;
 }
 
-public CartObject goToCartAndStartPlaceAnOrder () {
+public CartObject goToCart() {
     goToCard.click();
-    successButton.click();
 
     return this;
 
 }
+
+    public CartObject startPlaceAnOrder () {
+        successButton.click();
+
+    return this;
+    }
 
 public CartObject setName (String value) {
     setName.setValue(value);
@@ -80,7 +86,7 @@ public CartObject setCountry (String value) {
         return this;
     }
 
-    public CartObject checkResults (String name, String card) {
+    public CartObject checkResultsForAddItem(String name, String card) {
         $(".sweet-alert").shouldBe(visible);
         String orderConfirmText = $("p.lead").getText();
         String expectedText = "360";
@@ -91,9 +97,16 @@ public CartObject setCountry (String value) {
         return this;
     }
 
+    public CartObject deleteItemFrom () {
+    deleteButton.click();
 
+    return this;
+    }
 
+    public CartObject checkResultDeleteItem () {
+        $("tr.success").shouldNotBe(visible);
 
-
+        return this;
+    }
 
 }
