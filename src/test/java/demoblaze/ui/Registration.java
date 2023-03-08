@@ -2,12 +2,13 @@ package demoblaze.ui;
 
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
+import demoblaze.ui.pageObject.RegistrationObject;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class Registration extends TestBase{
     Faker faker = new Faker(new Locale("en"));
@@ -16,9 +17,11 @@ public class Registration extends TestBase{
     @Test
     void successfulRegistration () {
         open("https://www.demoblaze.com/");
-        $("#signin2").click();
-        $("#sign-username").setValue(login);
-        $("#sign-password").setValue(password);
-        $("button[onclick='register()']").click();
+        new RegistrationObject()
+                .goToRegistrationForm()
+                .setLogin(login)
+                .setPassword(password)
+                .clickToSubmitsBottom()
+                .checkResults();
     }
 }
