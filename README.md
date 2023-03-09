@@ -127,7 +127,7 @@ Report*</strong></code>, кликнув по которому, откроетс�
 <img title="Telegram Notifications" src="media/screen/TgResults.png">
 </p>
 
-## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> Пример запуска теста в Selenoid
+## <img width="4%" title="Selenoid" src="media/icons/Selenoid.svg"> Пример запуска теста в Selenoid
 
 > К каждому тесту в отчете прилагается видео.
 <p align="center">
