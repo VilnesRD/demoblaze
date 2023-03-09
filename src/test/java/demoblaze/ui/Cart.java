@@ -3,6 +3,7 @@ package demoblaze.ui;
 import com.github.javafaker.Faker;
 import demoblaze.TestBase;
 import demoblaze.ui.pageObject.CartObject;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +21,7 @@ public class Cart extends TestBase {
             city = faker.country().capital(),
             card = faker.finance().creditCard();
 
-
+    @Owner("Rodichev")
     @Test
     @DisplayName("Проверка добавления товара в корзину с оформлением заказа")
     void addItemToCart() {
@@ -51,7 +52,7 @@ public class Cart extends TestBase {
         });
     }
 
-
+    @Owner("Rodichev")
     @Test
     @DisplayName("Проверка удаления добавленного товара из корзины")
     void deleteItemFromCart() {

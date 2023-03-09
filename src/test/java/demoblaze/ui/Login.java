@@ -2,6 +2,7 @@ package demoblaze.ui;
 
 import demoblaze.TestBase;
 import demoblaze.ui.pageObject.LoginObject;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,8 +11,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class Login extends TestBase {
-@Test
-@DisplayName("Проверка логина с корректными данными пользователя")
+    @Owner("Rodichev")
+    @Test
+    @DisplayName("Проверка логина с корректными данными пользователя")
     void successfulLogin () {
     step("Открываем главную страницу", () -> {
         open(baseUrl);});
@@ -28,7 +30,7 @@ public class Login extends TestBase {
                 .checkResultSuccessfulLogin();});
     }
 
-
+    @Owner("Rodichev")
     @Test
     @DisplayName("Проверка логина с не корректными данными пользователя")
     void unSuccessfulLogin () {
