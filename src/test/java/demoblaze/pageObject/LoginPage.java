@@ -2,6 +2,8 @@ package demoblaze.pageObject;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -22,13 +24,13 @@ public class LoginPage {
     }
 
     public LoginPage setUsername (String username) {
-        setUsername.shouldBe(visible).setValue(username);
+        setUsername.shouldBe(visible, Duration.ofSeconds(6)).setValue(username);
 
         return this;
     }
 
     public LoginPage setPassword (String password) {
-        setPassword.shouldBe(visible).setValue(password);
+        setPassword.shouldBe(visible, Duration.ofSeconds(6)).setValue(password);
 
         return this;
     }

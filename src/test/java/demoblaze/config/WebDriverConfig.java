@@ -2,9 +2,12 @@ package demoblaze.config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({
-        "classpath:properties/${env}.properties"
-})
+import static org.aeonbits.owner.Config.*;
+
+@LoadPolicy(LoadType.MERGE)
+@Sources({
+        "classpath:properties/${env}.properties",
+        "classpath:properties/test.properties"})
 
 public interface WebDriverConfig extends Config {
     @Key("browser")
