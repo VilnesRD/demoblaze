@@ -14,6 +14,8 @@
 > 
 > :heavy_check_mark: [Интеграция с Allure TestOps](#-интеграция-с-allure-testops)
 > 
+> :heavy_check_mark: [Интеграция с Jira](#-интеграция-с-Jira)
+> 
 > :heavy_check_mark: [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 >
 > :heavy_check_mark: [Пример запуска теста в Selenoid](#-пример-запуска-теста-в-selenoid)
@@ -34,6 +36,7 @@
 <code><img width="5%" title="Jenkins" src="media/icons/Jenkins.svg"></code>
 <code><img width="5%" title="Jira" src="media/icons/Java.svg"></code>
 <code><img width="5%" title="Telegram" src="media/icons/Telegram.svg"></code>
+<code><img width="5%" title="Jira" src="media/icons/Jira.svg"></code>
 </p>
 
 > *В данном проекте автотесты написаны на <code><strong>*Java*</strong></code> с использованием фреймворка <code><strong>*Selenide*</strong></code> для UI-тестов.*
@@ -117,6 +120,12 @@ Report*</strong></code>, кликнув по которому, откроетс�
 
 <p align="center">
   <img src="media/screen/AllureCase.png" alt="test cases" width="900">
+</p>
+
+## <img width="4%" title="Jira" src="media/icons/Jira.svg"> Интеграция с Jira
+
+<p align="center">
+  <img src="media/screen/JuraIntegr.png" alt="test cases" width="900">
 </p>
 
 ## <img width="4%" title="Telegram" src="media/icons/Telegram.svg"> Уведомления в Telegram с использованием бота
