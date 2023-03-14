@@ -1,6 +1,5 @@
-package demoblaze.ui.pageObject;
+package demoblaze.pageObject;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
@@ -8,39 +7,39 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class RegistrationObject {
+public class RegistrationPage {
 
-    private SelenideElement
+    private final SelenideElement
     clickToRegistrationButton =  $("#signin2"),
     setName = $("#sign-username"),
     setPassword = $("#sign-password"),
     registerButton = $("button[onclick='register()']");
 
-    public RegistrationObject goToRegistrationForm () {
+    public RegistrationPage goToRegistrationForm () {
         clickToRegistrationButton.click();
 
         return this;
     }
 
-    public RegistrationObject setLogin (String login) {
+    public RegistrationPage setLogin (String login) {
         setName.shouldBe(visible).setValue(login);
 
         return this;
     }
 
-    public RegistrationObject setPassword (String password) {
+    public RegistrationPage setPassword (String password) {
         setPassword.shouldBe(visible).setValue(password);
 
         return this;
     }
 
-    public RegistrationObject clickToSubmitsBottom() {
+    public RegistrationPage clickToSubmitsBottom() {
         registerButton.click();
 
         return this;
     }
 
-    public RegistrationObject checkResults () {
+    public RegistrationPage checkResults () {
         String successfulRegistrationText = switchTo().alert().getText();
         String expectedText = "Sign up successful.";
         assertTrue(successfulRegistrationText.contains(expectedText));

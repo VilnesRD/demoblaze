@@ -1,4 +1,4 @@
-package demoblaze.ui.pageObject;
+package demoblaze.pageObject;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -7,45 +7,45 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-public class LoginObject {
+public class LoginPage {
 
-    private SelenideElement
+    private final SelenideElement
     loginButton =  $("#login2"),
     setUsername = $("#loginusername"),
     setPassword = $("#loginpassword"),
     submitLoginButton = $("button[onclick='logIn()']");
 
-    public LoginObject openLoginWindow (){
+    public LoginPage openLoginWindow (){
         loginButton.click();
 
         return this;
     }
 
-    public LoginObject setUsername (String username) {
+    public LoginPage setUsername (String username) {
         setUsername.shouldBe(visible).setValue(username);
 
         return this;
     }
 
-    public LoginObject setPassword (String password) {
+    public LoginPage setPassword (String password) {
         setPassword.shouldBe(visible).setValue(password);
 
         return this;
     }
 
-    public LoginObject clickToLogin() {
+    public LoginPage clickToLogin() {
         submitLoginButton.click();
 
         return this;
     }
 
-    public LoginObject checkResultSuccessfulLogin () {
+    public LoginPage checkResultSuccessfulLogin () {
         $("#nameofuser").shouldHave(text("Welcome test_qa_16"));
 
         return this;
     }
 
-    public LoginObject checkResultUnsuccessfulLogin () {
+    public LoginPage checkResultUnsuccessfulLogin () {
         switchTo().alert().accept();
         $("#logInModal").shouldBe(visible);
         $("#nameofuser").shouldNotBe(visible);

@@ -2,7 +2,7 @@ package demoblaze.ui;
 
 import com.github.javafaker.Faker;
 import demoblaze.TestBase;
-import demoblaze.ui.pageObject.RegistrationObject;
+import demoblaze.pageObject.RegistrationPage;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,6 +17,8 @@ public class Registration extends TestBase {
     Faker faker = new Faker(new Locale("en"));
     String login =faker.name().firstName(),
             password = faker.funnyName().name();
+    RegistrationPage registrationPage = new RegistrationPage();
+
     @Owner("Rodichev")
     @Test
     @DisplayName("Проверка создания нового пользователя")
@@ -24,14 +26,15 @@ public class Registration extends TestBase {
         step("Открываем главную страницу", () -> {
             open(baseUrl);});
         step("Открываем форму регистрации нового пользователя", () -> {
-            new RegistrationObject().goToRegistrationForm();});
+            registrationPage
+                    .goToRegistrationForm();});
         step("Вводим логин и пароль", () -> {
-            new RegistrationObject()
+            registrationPage
                     .setLogin(login)
                     .setPassword(password)
                     .clickToSubmitsBottom();});
         step("Проверяем, что появилось уведомление об успешной регистрации нового пользователя", () -> {
-            new RegistrationObject()
+            registrationPage
                     .checkResults();});
         }
     }

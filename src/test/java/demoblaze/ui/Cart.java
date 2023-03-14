@@ -2,7 +2,7 @@ package demoblaze.ui;
 
 import com.github.javafaker.Faker;
 import demoblaze.TestBase;
-import demoblaze.ui.pageObject.CartObject;
+import demoblaze.pageObject.CartPage;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +20,7 @@ public class Cart extends TestBase {
             country = faker.country().name(),
             city = faker.country().capital(),
             card = faker.finance().creditCard();
+            CartPage cartPage = new CartPage();
 
     @Owner("Rodichev")
     @Test
@@ -29,15 +30,15 @@ public class Cart extends TestBase {
             open("https://www.demoblaze.com/");
         });
         step("Открываем главную страницу и переходим в корзину", () -> {
-            new CartObject()
+           cartPage
                     .addItemToCart()
                     .goToCart();
         });
         step("Переходим к оформлению заказа", () -> {
-            new CartObject().startPlaceAnOrder();
+            cartPage.startPlaceAnOrder();
         });
         step("Заполняем поля имя, страна, номер кредитной карты, дату", () -> {
-            new CartObject()
+            cartPage
                     .setName(name)
                     .setCountry(country)
                     .setCity(city)
@@ -46,7 +47,7 @@ public class Cart extends TestBase {
                     .setYear("1999");
         });
         step("Проверяем что появилось окно подтверждающее создание заказа", () -> {
-            new CartObject()
+            cartPage
                     .finishPlaceAnOrder()
                     .checkResultsForAddItem(name, card);
         });
@@ -59,13 +60,15 @@ public class Cart extends TestBase {
         step("Открываем главную страницу", () -> {
             open(baseUrl);});
         step("Добавляем товар в коризну", () -> {
-            new CartObject()
+            cartPage
                     .addItemToCart()
                     .goToCart();});
         step("Удаляем товар из корзины", () -> {
-            new CartObject().deleteItemFrom();});
+            cartPage
+                    .deleteItemFrom();});
         step("Проверяем что выбранный товар удален из корзины", () -> {
-            new CartObject().checkResultDeleteItem();});
+            cartPage
+                    .checkResultDeleteItem();});
 
     }
 }

@@ -1,4 +1,4 @@
-package demoblaze.ui.pageObject;
+package demoblaze.pageObject;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -6,9 +6,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class CartObject {
+public class CartPage {
 
-    private SelenideElement
+    private final SelenideElement
             selectCategory = $$("#itemc").first(),
             selectItem = $("a[href='prod.html?idp_=1']"),
             successButton = $(".btn-success"),
@@ -22,7 +22,7 @@ public class CartObject {
             purchaseOrder = $("button[onclick='purchaseOrder()']"),
             deleteButton = $$("a[href='#']").get(7);
 
-    public CartObject addItemToCart() {
+    public CartPage addItemToCart() {
         selectCategory.click();
         selectItem.click();
         successButton.click();
@@ -31,62 +31,62 @@ public class CartObject {
         return this;
     }
 
-    public CartObject goToCart() {
+    public CartPage goToCart() {
         goToCard.click();
 
         return this;
 
     }
 
-    public CartObject startPlaceAnOrder() {
+    public CartPage startPlaceAnOrder() {
         successButton.click();
 
         return this;
     }
 
-    public CartObject setName(String value) {
+    public CartPage setName(String value) {
         setName.setValue(value);
 
         return this;
     }
 
-    public CartObject setCountry(String value) {
+    public CartPage setCountry(String value) {
         setCountry.setValue(value);
 
         return this;
     }
 
-    public CartObject setCity(String value) {
+    public CartPage setCity(String value) {
         setCity.setValue(value);
 
         return this;
     }
 
-    public CartObject setCard(String value) {
+    public CartPage setCard(String value) {
         setCard.setValue(value);
 
         return this;
     }
 
-    public CartObject setMonth(String value) {
+    public CartPage setMonth(String value) {
         setMonth.setValue(value);
 
         return this;
     }
 
-    public CartObject setYear(String value) {
+    public CartPage setYear(String value) {
         setYear.setValue(value);
 
         return this;
     }
 
-    public CartObject finishPlaceAnOrder() {
+    public CartPage finishPlaceAnOrder() {
         purchaseOrder.click();
 
         return this;
     }
 
-    public CartObject checkResultsForAddItem(String name, String card) {
+    public CartPage checkResultsForAddItem(String name, String card) {
         $(".sweet-alert").shouldBe(visible);
         String orderConfirmText = $("p.lead").getText();
         String expectedText = "360 USD";
@@ -97,13 +97,13 @@ public class CartObject {
         return this;
     }
 
-    public CartObject deleteItemFrom() {
+    public CartPage deleteItemFrom() {
         deleteButton.click();
 
         return this;
     }
 
-    public CartObject checkResultDeleteItem() {
+    public CartPage checkResultDeleteItem() {
         $("tr.success").shouldNotBe(visible);
 
         return this;

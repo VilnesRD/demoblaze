@@ -1,7 +1,7 @@
 package demoblaze.ui;
 
 import demoblaze.TestBase;
-import demoblaze.ui.pageObject.LoginObject;
+import demoblaze.pageObject.LoginPage;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class Login extends TestBase {
+    LoginPage loginPage = new LoginPage();
     @Owner("Rodichev")
     @Test
     @DisplayName("Проверка логина с корректными данными пользователя")
@@ -18,15 +19,15 @@ public class Login extends TestBase {
     step("Открываем главную страницу", () -> {
         open(baseUrl);});
     step("Открываем окно login", () -> {
-        new LoginObject()
+        loginPage
                 .openLoginWindow();});
     step("Вводим корректные данные пользователя и нажимаем кнопку login", () -> {
-        new LoginObject()
+        loginPage
                 .setUsername("test_qa_16")
                 .setPassword("xswqaz123")
                 .clickToLogin();});
     step("Проверяем, что на странице отображается информация об аккаунте ", () -> {
-        new LoginObject()
+        loginPage
                 .checkResultSuccessfulLogin();});
     }
 
@@ -36,15 +37,15 @@ public class Login extends TestBase {
     void unSuccessfulLogin () {
         open(baseUrl);
         step("Открываем окно login", () -> {
-            new LoginObject()
+            loginPage
                     .openLoginWindow();});
         step("Вводим не корректные данные пользователя и нажимаем кнопку login", () -> {
-            new LoginObject()
+            loginPage
                     .setUsername("12333")
                 .setPassword("1233333")
                 .clickToLogin();});
         step("Проверяем, что повявилось уведомление об ошибке", () -> {
-            new LoginObject()
+            loginPage
                 .checkResultUnsuccessfulLogin();});
 
     }

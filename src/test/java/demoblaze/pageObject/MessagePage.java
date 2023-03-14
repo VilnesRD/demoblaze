@@ -1,52 +1,51 @@
-package demoblaze.ui.pageObject;
+package demoblaze.pageObject;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class MessageObject {
+public class MessagePage {
 
-    private SelenideElement
+    private final SelenideElement
     contactUsButton = $$("ul.navbar-nav li").get(1),
     setEmail = $("#recipient-email"),
     setName = $("#recipient-name"),
     textArea =  $("#message-text"),
             submitButton = $("button[onclick='send()']");
 
-    public MessageObject clickToContactUs () {
+    public MessagePage clickToContactUs () {
         contactUsButton.click();
 
         return this;
     }
 
-    public MessageObject setEmail (String email) {
+    public MessagePage setEmail (String email) {
         setEmail.shouldBe(visible).setValue(email);
 
         return this;
     }
 
-    public MessageObject setName (String name) {
+    public MessagePage setName (String name) {
         setName.setValue(name);
 
         return this;
     }
 
-    public MessageObject addText (String text) {
+    public MessagePage addText (String text) {
         textArea.setValue(text);
 
         return this;
     }
 
-    public MessageObject clickSubmit () {
+    public MessagePage clickSubmit () {
         submitButton.click();
 
         return this;
     }
 
-    public MessageObject checkResult () {
+    public MessagePage checkResult () {
         String alertText = switchTo().alert().getText();
         String expectedText = "Thanks for the message!!";
         assertTrue(alertText.contains(expectedText));

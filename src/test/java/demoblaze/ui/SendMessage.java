@@ -2,7 +2,7 @@ package demoblaze.ui;
 
 import com.github.javafaker.Faker;
 import demoblaze.TestBase;
-import demoblaze.ui.pageObject.MessageObject;
+import demoblaze.pageObject.MessagePage;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +18,9 @@ public class SendMessage extends TestBase {
     String email =faker.internet().emailAddress(),
     name = faker.name().firstName(),
     text = faker.lorem().sentence();
+
+    MessagePage messagePage = new MessagePage();
+
     @Owner("Rodichev")
     @Test
     @DisplayName("Проверка отправки сообщения через форму")
@@ -25,15 +28,17 @@ public class SendMessage extends TestBase {
         step("Открываем главную страницу", () -> {
             open(baseUrl);});
         step("Открываем формы для связи", () -> {
-            new MessageObject().clickToContactUs();});
+            messagePage
+                    .clickToContactUs();});
         step("Вводим email, имя, текст сообщения", () -> {
-            new MessageObject()
+            messagePage
                     .setEmail(email)
                     .setName(name)
                     .addText(text)
                     .clickSubmit();});
         step("Проверяем, что появилось сообщение об успешной отправке обращения", () -> {
-            new MessageObject().checkResult();});
+            messagePage
+                    .checkResult();});
         }
     }
 
