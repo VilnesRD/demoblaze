@@ -86,10 +86,9 @@ public class CartPage {
         return this;
     }
 
-    public CartPage checkResultsForAddItem(String name, String card) {
+    public CartPage checkResultsForAddItem(String name, String card, String expectedText) {
         $(".sweet-alert").shouldBe(visible);
         String orderConfirmText = $("p.lead").getText();
-        String expectedText = "360 USD";
         assertTrue(orderConfirmText.contains(expectedText));
         assertTrue(orderConfirmText.contains(name));
         assertTrue(orderConfirmText.contains(card));

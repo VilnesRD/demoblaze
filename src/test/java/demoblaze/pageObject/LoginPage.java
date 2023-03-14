@@ -39,8 +39,8 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage checkResultSuccessfulLogin () {
-        $("#nameofuser").shouldHave(text("Welcome test_qa_16"));
+    public LoginPage checkResultSuccessfulLogin (String expectedText) {
+        $("#nameofuser").shouldHave(text(expectedText));
 
         return this;
     }

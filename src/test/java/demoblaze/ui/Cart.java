@@ -7,6 +7,7 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
 import java.util.Locale;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -49,7 +50,7 @@ public class Cart extends TestBase {
         step("Проверяем что появилось окно подтверждающее создание заказа", () -> {
             cartPage
                     .finishPlaceAnOrder()
-                    .checkResultsForAddItem(name, card);
+                    .checkResultsForAddItem(name, card, "360 USD");
         });
     }
 
