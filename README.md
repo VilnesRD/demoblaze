@@ -6,7 +6,7 @@
 >
 > :heavy_check_mark: [Реализованы проверки](#bookmark_tabs-реализованы-проверки)
 >
-> :heavy_check_mark: [Запуск тестов из терминала](#computer-Запуск-тестов-из-терминала)
+> :heavy_check_mark: [Запуск тестов из терминала](#computer-запуск-тестов-из-терминала)
 >
 > :heavy_check_mark: [Запуск тестов в Jenkins](#-запуск-тестов-в-jenkins)
 >
@@ -45,7 +45,9 @@
 >
 >*<code><strong>*JUnit 5*</strong></code> используется как фреймворк для модульного тестирования.*
 >
->*Запуск тестов выполняется из <code><strong>*Jenkins*</strong></code>.*
+>*Локальный запуск тестов из <code><strong>*Терминала*</strong></code>.*
+>
+>*Запуска тестов из <code><strong>*Jenkins*</strong></code>.*
 >
 >*<code><strong>*Allure Report, Allure TestOps, Telegram Bot*</strong></code> используются для визуализации результатов тестирования.*
 
