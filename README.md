@@ -6,7 +6,7 @@
 >
 > :heavy_check_mark: [Реализованы проверки](#bookmark_tabs-реализованы-проверки)
 >
-> :heavy_check_mark: [Запуск тестов из терминала](#computer-Запуск-тестов-из-терминала)
+> :heavy_check_mark: [Запуск тестов из терминала](#computer-запуск-тестов-из-терминала)
 >
 > :heavy_check_mark: [Запуск тестов в Jenkins](#-запуск-тестов-в-jenkins)
 >
@@ -45,7 +45,9 @@
 >
 >*<code><strong>*JUnit 5*</strong></code> используется как фреймворк для модульного тестирования.*
 >
->*Запуск тестов выполняется из <code><strong>*Jenkins*</strong></code>.*
+>*Локальный запуск тестов из <code><strong>*Терминала*</strong></code>.*
+>
+>*Запуска тестов из <code><strong>*Jenkins*</strong></code>.*
 >
 >*<code><strong>*Allure Report, Allure TestOps, Telegram Bot*</strong></code> используются для визуализации результатов тестирования.*
 
@@ -125,7 +127,7 @@ Report*</strong></code>, кликнув по которому, откроетс�
 ## <img width="4%" title="Jira" src="media/icons/Jira.svg"> Интеграция с Jira
 
 <p align="center">
-  <img src="media/screen/JuraIntegr.png" alt="test cases" width="900">
+  <img src="media/screen/JiraIntegr.png" alt="test cases" width="900">
 </p>
 
 ## <img width="4%" title="Telegram" src="media/icons/Telegram.svg"> Уведомления в Telegram с использованием бота
